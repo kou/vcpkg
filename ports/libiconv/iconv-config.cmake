@@ -1,0 +1,8 @@
+if (NOT TARGET iconv::libiconv)
+    add_library(iconv::libcharset INTERFACE IMPORTED)
+    add_library(iconv::libiconv INTERFACE IMPORTED)
+    if(APPLE)
+        set_property(TARGET iconv::libcharset PROPERTY INTERFACE_LINK_LIBRARIES "charset;iconv::libiconv")
+        set_property(TARGET iconv::libiconv PROPERTY INTERFACE_LINK_LIBRARIES "iconv")
+    endif()
+endif()

@@ -59,7 +59,7 @@ add_library(libiconv lib/iconv.c)
 target_link_libraries(libiconv PRIVATE libcharset)
 target_include_directories(libiconv PUBLIC $<INSTALL_INTERFACE:include>)
 
-install(TARGETS libcharset libiconv EXPORT unofficial-iconv-targets
+install(TARGETS libcharset libiconv EXPORT iconv-targets
   RUNTIME DESTINATION bin
   LIBRARY DESTINATION lib
   ARCHIVE DESTINATION lib
@@ -74,8 +74,8 @@ if(NOT DISABLE_INSTALL_HEADERS)
 endif()
 
 install(
-    EXPORT unofficial-iconv-targets
-    FILE unofficial-iconv-config.cmake
-    NAMESPACE unofficial::iconv::
-    DESTINATION share/unofficial-iconv
+    EXPORT iconv-targets
+    FILE iconv-config.cmake
+    NAMESPACE iconv::
+    DESTINATION share/iconv
 )

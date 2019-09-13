@@ -1,7 +1,7 @@
 if(VCPKG_CMAKE_SYSTEM_NAME AND NOT VCPKG_CMAKE_SYSTEM_NAME STREQUAL "WindowsStore")
     set(VCPKG_POLICY_EMPTY_PACKAGE enabled)
-    file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/share/unofficial-iconv)
-    file(COPY ${CMAKE_CURRENT_LIST_DIR}/unofficial-iconv-config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/unofficial-iconv)
+    file(MAKE_DIRECTORY ${CURRENT_PACKAGES_DIR}/share/iconv)
+    file(COPY ${CMAKE_CURRENT_LIST_DIR}/iconv-config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/iconv)
     return()
 endif()
 
@@ -34,10 +34,10 @@ vcpkg_configure_cmake(
 
 vcpkg_install_cmake()
 
-vcpkg_fixup_cmake_targets(CONFIG_PATH share/unofficial-iconv TARGET_PATH share/unofficial-iconv)
+vcpkg_fixup_cmake_targets(CONFIG_PATH share/iconv TARGET_PATH share/iconv)
 
 vcpkg_copy_pdbs()
 
 file(INSTALL ${SOURCE_PATH}/COPYING.LIB DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
 
-vcpkg_test_cmake(PACKAGE_NAME unofficial-iconv)
+vcpkg_test_cmake(PACKAGE_NAME iconv)

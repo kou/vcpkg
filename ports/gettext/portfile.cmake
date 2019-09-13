@@ -3,7 +3,7 @@ if(VCPKG_CMAKE_SYSTEM_NAME AND NOT VCPKG_CMAKE_SYSTEM_NAME STREQUAL "WindowsStor
     if (NOT EXISTS "/usr/include/libintl.h")
         message(FATAL_ERROR "Please use command \"sudo apt-get install gettext\" to install gettext on linux.")
     endif()
-    file(COPY ${CMAKE_CURRENT_LIST_DIR}/unofficial-gettext-config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/unofficial-gettext)
+    file(COPY ${CMAKE_CURRENT_LIST_DIR}/gettext-config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/gettext)
     return()
 endif()
 
@@ -45,7 +45,7 @@ vcpkg_configure_cmake(
 
 vcpkg_install_cmake()
 
-vcpkg_fixup_cmake_targets(CONFIG_PATH share/unofficial-gettext TARGET_PATH share/unofficial-gettext)
+vcpkg_fixup_cmake_targets(CONFIG_PATH share/gettext TARGET_PATH share/gettext)
 
 # Handle copyright
 file(COPY ${SOURCE_PATH}/COPYING DESTINATION ${CURRENT_PACKAGES_DIR}/share/gettext)
